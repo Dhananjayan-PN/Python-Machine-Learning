@@ -6,7 +6,7 @@ from sklearn.preprocessing import MinMaxScaler
 from scipy.spatial import distance_matrix
 from sklearn.cluster import AgglomerativeClustering
 
-df = pd.read_csv("Week4\Hierarchical\cars_clus.csv")
+df = pd.read_csv("Clustering\Hierarchical\cars_clus.csv")
 
 # # Data cleansing
 df[[

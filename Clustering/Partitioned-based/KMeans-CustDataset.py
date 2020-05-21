@@ -5,7 +5,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.cluster import KMeans
 from mpl_toolkits.mplot3d import Axes3D
 
-df = pd.read_csv('Week4\Partitioned-based\Cust_Segmentation.csv')
+df = pd.read_csv('Clustering\Partitioned-based\Cust_Segmentation.csv')
 df = df.drop('Address', axis=1)
 # print(df.head())
 

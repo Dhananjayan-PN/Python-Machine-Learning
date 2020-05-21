@@ -4,9 +4,9 @@ from math import sqrt
 import matplotlib.pyplot as plt
 
 movies_df = pd.read_csv(
-    r'Week5\Collaborative Filtering Recommender\movies.csv')
+    r'Recommender Systems\Collaborative Filtering Recommender\movies.csv')
 ratings_df = pd.read_csv(
-    r'Week5\Collaborative Filtering Recommender\ratings.csv')
+    r'Recommender Systems\Collaborative Filtering Recommender\ratings.csv')
 
 # Making the data easier to analyse
 movies_df['year'] = movies_df.title.str.extract('(\(\d\d\d\d\))', expand=False)
@@ -115,5 +115,6 @@ movies_df = movies_df.loc[movies_df['movieId'].isin(
 movies_df['rec'] = recommendation_df['weighted average recommendation score']
 movies_df = movies_df.sort_values(by='rec', ascending=False)
 movies_df = movies_df.reset_index(drop=True)
-movies_df.to_csv(r'Week5\Content-based Recommender\movie_recommendations.csv')
+movies_df.to_csv(
+    r'Recommender Systems\Content-based Recommender\movie_recommendations.csv')
 print(movies_df.head(20))

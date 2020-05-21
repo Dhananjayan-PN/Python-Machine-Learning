@@ -7,7 +7,7 @@ import numpy as np
 import matplotlib.ticker as ticker
 from sklearn import preprocessing
 
-df = pd.read_csv('Week6\loan_train.csv')
+df = pd.read_csv('Final Project -  The Best Classifier\loan_train.csv')
 df['due_date'] = pd.to_datetime(df['due_date'])
 df['effective_date'] = pd.to_datetime(df['effective_date'])
 df['dayofweek'] = df['effective_date'].dt.dayofweek
@@ -106,7 +106,7 @@ from sklearn.metrics import jaccard_similarity_score
 from sklearn.metrics import f1_score
 from sklearn.metrics import log_loss
 
-test_df = pd.read_csv('Week6\loan_test.csv')
+test_df = pd.read_csv('Final Project -  The Best Classifier\loan_test.csv')
 test_df['due_date'] = pd.to_datetime(test_df['due_date'])
 test_df['effective_date'] = pd.to_datetime(test_df['effective_date'])
 test_df['dayofweek'] = test_df['effective_date'].dt.dayofweek

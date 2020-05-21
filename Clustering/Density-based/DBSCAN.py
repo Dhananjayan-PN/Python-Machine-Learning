@@ -5,7 +5,8 @@ from sklearn.cluster import DBSCAN
 import sklearn.utils
 from sklearn.preprocessing import StandardScaler
 
-df = pd.read_csv('Week4\Density-based\weather-stations20140101-20141231.csv')
+df = pd.read_csv(
+    'Clustering\Density-based\weather-stations20140101-20141231.csv')
 df = df[pd.notnull(df["Tm"])]
 df = df.reset_index(drop=True)
 

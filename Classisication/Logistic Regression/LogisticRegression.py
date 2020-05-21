@@ -12,7 +12,7 @@ from sklearn.metrics import jaccard_similarity_score
 from sklearn.metrics import f1_score
 from sklearn.metrics import log_loss
 
-df = pd.read_csv("Week3/Logistic Regression/ChurnData.csv")
+df = pd.read_csv("Classification/Logistic Regression/ChurnData.csv")
 df["churn"] = df["churn"].astype("int")
 # print(df.head())
 
@@ -48,8 +48,10 @@ X = df[[
 X = preprocessing.StandardScaler().fit(X).transform(X)
 Y = df["churn"].values
 
-X_train, X_test, Y_train, Y_test = train_test_split(
-    X, Y, test_size=0.2, random_state=4)
+X_train, X_test, Y_train, Y_test = train_test_split(X,
+                                                    Y,
+                                                    test_size=0.2,
+                                                    random_state=4)
 
 LogiRegr = LogisticRegression(C=0.01, solver="liblinear")
 # C is the inverse of Regularization strength, a method used to avoid overfitting. Small positive float valus will result in well regularized models
@@ -64,16 +66,13 @@ Y_predicted = LogiRegr.predict(X_test)
 jaccard_score = jaccard_similarity_score(Y_test, Y_predicted)
 print("Jaccard Index: ", jaccard_score)
 
-
 # 2. F-1 Score
 F1 = f1_score(Y_test, Y_predicted)
 print('F-1 Score: ', F1)
 
-
 # 3. Log Loss
 LogLoss = log_loss(Y_test, Y_predicted)
 print('Log Loss: ', LogLoss)
-
 
 # 4. Confusion Matrix
 # Compute Confusion Matrix
@@ -83,7 +82,11 @@ print('Confusion Matrix:', cnf_matrix, sep='\n')
 # Plot Confusion Matrix
 
 
-def plot_confusion_matrix(cm, classes, normalize=False, title="Confusion matrix", cmap=plt.cm.Blues):
+def plot_confusion_matrix(cm,
+                          classes,
+                          normalize=False,
+                          title="Confusion matrix",
+                          cmap=plt.cm.Blues):
     """
     This function prints and plots the confusion matrix.
     Normalization can be applied by setting `normalize=True`.
@@ -117,7 +120,11 @@ def plot_confusion_matrix(cm, classes, normalize=False, title="Confusion matrix"
 
 
 plt.figure()
-plot_confusion_matrix(cnf_matrix, classes=[
-                      "churn=1", "churn=0"], normalize=False, title="Confusion matrix",)
-plt.savefig('Week3/Logistic Regression/ConfusionMatrix.png')
+plot_confusion_matrix(
+    cnf_matrix,
+    classes=["churn=1", "churn=0"],
+    normalize=False,
+    title="Confusion matrix",
+)
+plt.savefig('Classification/Logistic Regression/ConfusionMatrix.png')
 plt.show()

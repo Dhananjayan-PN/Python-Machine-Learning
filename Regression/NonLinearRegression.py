@@ -3,11 +3,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 
-df = pd.read_csv('china_gdp.csv')
+df = pd.read_csv('Regression\china_gdp.csv')
 x_data, y_data = (df["Year"].values, df["Value"].values)
-xdata = x_data/max(x_data)
-ydata = y_data/max(y_data)
-
+xdata = x_data / max(x_data)
+ydata = y_data / max(y_data)
 '''plt.plot(df[['Year']], df[['Value']], color='blue')
 plt.show()'''
 
@@ -15,7 +14,7 @@ plt.show()'''
 
 
 def sigmoid(x, Beta_1, Beta_2):
-    y = 1 / (1 + np.exp(-Beta_1*(x-Beta_2)))
+    y = 1 / (1 + np.exp(-Beta_1 * (x - Beta_2)))
     return y
 
 

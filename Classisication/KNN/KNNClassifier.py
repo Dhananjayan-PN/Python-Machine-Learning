@@ -8,7 +8,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn import metrics
 
-df = pd.read_csv('Week3/teleCust1000t.csv')
+df = pd.read_csv('Classification/KNN/teleCust1000t.csv')
 # print(df['custcat'].value_counts())
 # df.hist(column='income', bins=50)
 # plt.show()

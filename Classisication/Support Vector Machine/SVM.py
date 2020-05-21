@@ -9,7 +9,7 @@ from sklearn.metrics import classification_report, confusion_matrix
 from sklearn.metrics import jaccard_similarity_score
 from sklearn.metrics import f1_score
 
-df = pd.read_csv('Week3\Support Vector Machine\cell_samples.csv')
+df = pd.read_csv('Classification\Support Vector Machine\cell_samples.csv')
 # print(df.head())
 
 # Visualize the data
@@ -24,17 +24,20 @@ plt.show() """
 df = df[pd.to_numeric(df['BareNuc'], errors='coerce').notnull()]
 df['BareNuc'] = df['BareNuc'].astype('int')
 
-X = df[['Clump', 'UnifSize', 'UnifShape', 'MargAdh', 'SingEpiSize',
-        'BareNuc', 'BlandChrom', 'NormNucl', 'Mit']].values
+X = df[[
+    'Clump', 'UnifSize', 'UnifShape', 'MargAdh', 'SingEpiSize', 'BareNuc',
+    'BlandChrom', 'NormNucl', 'Mit'
+]].values
 Y = df['Class'].values
 
-X_train, X_test, Y_train, Y_test = train_test_split(
-    X, Y, test_size=0.2, random_state=4)
+X_train, X_test, Y_train, Y_test = train_test_split(X,
+                                                    Y,
+                                                    test_size=0.2,
+                                                    random_state=4)
 
 # Check dimensions of datasets
 # print("Train: ", X_train.shape, Y_train.shape)
 # print("Test: ", X_test.shape, Y_test.shape)
-
 
 SVMclf = svm.SVC(kernel='poly')
 # kernel can also be 'linear', 'rbf', 'poly', 'sigmoid'. Default = 'rbf'
@@ -62,7 +65,8 @@ np.set_printoptions(precision=2)
 # Plot
 
 
-def plot_confusion_matrix(cm, classes,
+def plot_confusion_matrix(cm,
+                          classes,
                           normalize=False,
                           title='Confusion matrix',
                           cmap=plt.cm.Blues):
@@ -85,7 +89,9 @@ def plot_confusion_matrix(cm, classes,
     fmt = '.2f' if normalize else 'd'
     thresh = cm.max() / 2.
     for i, j in itertools.product(range(cm.shape[0]), range(cm.shape[1])):
-        plt.text(j, i, format(cm[i, j], fmt),
+        plt.text(j,
+                 i,
+                 format(cm[i, j], fmt),
                  horizontalalignment="center",
                  color="white" if cm[i, j] > thresh else "black")
 
@@ -95,7 +101,11 @@ def plot_confusion_matrix(cm, classes,
 
 
 plt.figure()
-plot_confusion_matrix(ConfMatrix, classes=[
-                      "Benign(2)", "Malignant(4)"], normalize=False, title="Confusion matrix",)
-plt.savefig('Week3/Support Vector Machine/ConfusionMatrix.png')
+plot_confusion_matrix(
+    ConfMatrix,
+    classes=["Benign(2)", "Malignant(4)"],
+    normalize=False,
+    title="Confusion matrix",
+)
+plt.savefig('Classification/Support Vector Machine/ConfusionMatrix.png')
 plt.show()

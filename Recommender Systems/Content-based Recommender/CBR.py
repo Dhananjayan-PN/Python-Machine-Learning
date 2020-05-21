@@ -2,8 +2,12 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
-movies_df = pd.read_csv(r'Week5\Content-based Recommender\movies.csv')
-ratings_df = pd.read_csv(r'Week5\Content-based Recommender\ratings.csv')
+movies_df = pd.read_csv(
+    r'Recommender Systems\Content-based Recommender\Content-based Recommender\movies.csv'
+)
+ratings_df = pd.read_csv(
+    r'Recommender Systems\Content-based Recommender\Content-based Recommender\ratings.csv'
+)
 # print(movies_df.head())
 # print(ratings_df.head())
 
@@ -82,5 +86,7 @@ movies_df = movies_df.loc[movies_df['movieId'].isin(
 movies_df['rec'] = recommendationTable_df.values
 movies_df = movies_df.sort_values('rec', ascending=False)
 movies_df = movies_df.reset_index(drop=True)
-movies_df.to_csv(r'Week5\Content-based Recommender\movie_recommendations.csv')
+movies_df.to_csv(
+    r'Recommender Systems\Content-based Recommender\Content-based Recommender\movie_recommendations.csv'
+)
 print(movies_df.head(20))

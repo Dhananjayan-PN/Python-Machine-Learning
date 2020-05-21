@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn import linear_model
 
-df = pd.read_csv("FuelConsumptionCo2.csv")
+df = pd.read_csv("Regression\FuelConsumptionCo2.csv")
 
 msk = np.random.rand(len(df)) < 0.8
 train = df[msk]

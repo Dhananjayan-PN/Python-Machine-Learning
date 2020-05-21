@@ -10,7 +10,7 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.externals.six import StringIO
 from sklearn import tree
 
-df = pd.read_csv('Week3/Decision Trees/drug200.csv')
+df = pd.read_csv('Classification/Decision Trees/drug200.csv')
 # print(df.head(20))
 X = df[['Age', 'Sex', 'BP', 'Cholesterol', 'Na_to_K']].values
 Y = df['Drug'].values
@@ -44,7 +44,7 @@ print('Accuracy:', metrics.accuracy_score(y_true=Y_test, y_pred=Y_predicted))
 
 # Visualize the tree
 dot_data = StringIO()
-filename = "Week3/Decision Trees/DecisionTree.png"
+filename = "Classification/Decision Trees/DecisionTree.png"
 featureNames = df.columns[0:5]
 targetNames = df["Drug"].unique().tolist()
 out = tree.export_graphviz(Tree,
