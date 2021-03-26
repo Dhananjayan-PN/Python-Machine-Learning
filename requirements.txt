@@ -101,7 +101,7 @@ pytz==2018.9
 pywin32==224
 pywin32-ctypes==0.2.0
 pywinpty==0.5.5
-PyYAML==5.3.1
+PyYAML==5.4
 pyzmq==18.0.2
 regex==2020.5.14
 requests==2.21.0
