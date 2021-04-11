@@ -86,7 +86,7 @@ PyAudio==0.2.11
 pycodestyle==2.5.0
 pydotplus==2.0.2
 pygame==1.9.4
-Pygments==2.3.1
+Pygments==2.7.4
 PyInstaller==3.6
 PyJWT==1.7.1
 pylint==2.2.2
