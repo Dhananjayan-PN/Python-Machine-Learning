@@ -98,7 +98,7 @@ python-for-android==0.6.0
 pyttsx==1.1
 pyttsx3==2.7
 pytz==2018.9
-pywin32==224
+pywin32==301
 pywin32-ctypes==0.2.0
 pywinpty==0.5.5
 PyYAML==5.4
